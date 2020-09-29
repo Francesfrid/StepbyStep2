@@ -1,92 +1,69 @@
-@import url(‘https://fonts.googleapis.com/css?family=Oswald');
-
-body {
-    font-size: 18px; 
-    line-height: 28px; 
-    color: #333;
+/* Navigation */
+function openNav() {
+  document.getElementById("slidenav").style.width = "250px";
 }
 
-header {
-    background: url{images/coding-header.jpg) 50%. 50%;
-    background-size: cover;
-    background-attahcedment: fixed;
-    text-align: center;
-    color: #FFF;
-        padding: 14% 0;
+function closeNav() {
+  document.getElementById("slidenav").style.width = "0";
 }
 
-    Section {
-    width: 700px;
-    margin: 0 auto;
-    border-bottom: 1px solid #CCC;
-    padding-bottom: 40px;
-    margin-bottom: 70px;
-}
-Footer {
-    text-align: center;
-    }
-       
-h1, 
-h2, 
-h3 {
-    font-family: ‘Oswald’ , sans-serif;
-    font-weight: normal; 
-}
-h1 {
-    font-size: 64px;
-    line-height: 68px;
-    margin: 0; 
-}
-h2 {
-    font-size: 46px;
-    line-height: 50px;
-    margin-bottom: 0; 
-}
-h3 {
-    font-size: 28px;
-    line-height: 32px;
-}
-a {
-    color: #2B9FD6;
-    text-decoration: none; 
+function openCity(evt, cityName) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(cityName).style.display = "block";
+  evt.currentTarget.className += " active";
 }
 
-a: hover {
-    color: #30BEFF;
-    text-decoration: underline; 
-}
-    
-ul, 
-ol {
-    margin: 0;
-}
-header p {
-    font-style: italic;
+// Get the element with id="defaultOpen" and click on it
+document.getElementById("defaultOpen").click();
+
+/* Accordions */
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.maxHeight){
+      panel.style.maxHeight = null;
+    } else {
+      panel.style.maxHeight = panel.scrollHeight + "px";
+    } 
+  });
 }
 
-span.bold. {
-    font-weight: bold;
+/* Expanding Grid */
+function openTab(tabName) {
+  var i, x;
+  x = document.getElementsByClassName("containerTab");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";
+  }
+  document.getElementById(tabName).style.display = "block";
 }
 
-Footer ul { 
-    padding: 0;
+/* Video Backgrounds */
+var video = document.getElementById("myVideo");
+var btn = document.getElementById("myBtn");
+
+function myFunction() {
+  if (video.paused) {
+    video.play();
+    btn.innerHTML = "Pause";
+  } else {
+    video.pause();
+    btn.innerHTML = "Play";
+  }
 }
 
-Footer li {
-    display: inline-block;
-    vertical-align: top;
-    width: 31%
-    background: #eee;
-    border-top: 4px solid #2B9FD6; 
-    padding: 1%
-    min-height: 90px; 
-}
 
-    Footer li:hover { 
-        border-color: #30BEFF;
-    }
-    
-    footer p {        
-        font-size: 14px;
-        color: #333; 
-    }
+
+
